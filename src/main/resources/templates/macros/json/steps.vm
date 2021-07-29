@@ -1,0 +1,74 @@
+#macro(includeSteps, $steps)
+
+<div class="steps inner-level">
+  #set($stepsId = $counter.next())
+  #set($collapseCounter = 0)
+  <div data-toggle="collapse" class="#if ($element.getStatus().isPassed()) collapsed #end collapsable-control" data-target="#steps-$stepsId">
+    #includeBrief("Steps", $element.getStepsStatus(), "", true)
+  </div>
+
+  <div id="steps-$stepsId" class="inner-level collapse collapsable-details #if (!$element.getStatus().isPassed() || $expand_all_steps) in #end">
+    #foreach($step in $element.getSteps())
+      #set($stepCounter = $counter.next())
+        ## --- Add support for comments ---
+      #if ($step.getName().indexOf("#")==0 && $step.getName().indexOf("#>>")!=0 && $step.getName().indexOf("#<<")!=0)
+        <div class="comment">$step.getName().substring(1,$step.getName().length())</div>
+        ## --- Add support for collapsible sections ---
+      #elseif ($step.getName().indexOf("#>>")==0)
+         #set($collapseCounter = $collapseCounter + 1)
+         #set($uid = $util.uid())
+         <div data-toggle="collapse" class="#if ($element.getStatus().isPassed()) collapsed #end collapsable-control" data-target="#collapsible-steps-$uid" style="background-color: #F2928C">
+            <div class="brief" style="background-color:#d2dce3; color: black; margin: 5px 0 5px 0; padding: 5px 0 5px 0">
+              <i class="chevron fa fa-fw"></i>
+              <span class="collapsible-text indention">$step.getName().substring(3,$step.getName().length())</span>
+            </div>
+         </div>
+         <div id="collapsible-steps-$uid" class="steps inner-level collapse collapsable-details #if (!$element.getStatus().isPassed()) in #end">
+      #elseif ($step.getName().indexOf("#<<")==0 && $collapseCounter>0)
+         #set($collapseCounter = $collapseCounter - 1)
+         </div>
+      #else
+      <div class="step">
+        #set($isPassed = $step.getResult().getStatus().isPassed())
+        <div data-toggle="collapse" class="#if ($isPassed && !$expand_all_steps) collapsed #end collapsable-control" data-target="#outputs-$stepCounter">
+            #includeStepName($step.getKeyword(), $step.getName(), $step.getMatch().getArguments(), $step.getResult().getStatus(), $step.getResult())
+        </div>
+        #includeDocString($step.getDocString())
+        #if (!$step.getRows().isEmpty())
+          <table class="table table-bordered table-striped" style="width:5px; margin-top:5px">
+            #foreach($row in $step.getRows())
+              <tr>
+                #foreach($cell in $row.getCells())
+                  <td>$cell</td>
+                #end
+              </tr>
+            #end
+          </table>
+        #end
+        #includeMessage($step.getResult().getErrorMessageTitle(), $step.getResult().getErrorMessage(), $isPassed)
+        <div id="outputs-$stepCounter" class="collapse collapsable-details #if (!$isPassed || $expand_all_steps) in #end" #if (!$isPassed || $expand_all_steps) aria-expanded="true" #end>
+          #**
+            * DO NOT format the line below. Whitespace nodes are significant in a pre-block.
+          *#
+          #foreach($output in $step.getOutputs())
+            #set($outputIndex = $foreach.index + 1)
+            <pre><div data-toggle="collapse" class="collapsable-control medium-thin-text" data-target="#output-$stepCounter-$outputIndex">Logs $outputIndex <i class="chevron fa fa-fw"></i></div>
+            <div id="output-$stepCounter-$outputIndex" class="collapse in" aria-expanded="true">
+                #foreach($message in $output.getMessages())<p style="font-size: 15px">$message</p>#end</div></pre>
+          #end
+        </div>
+        #includeHooks("Before", $step.getBefore(), $step.getBeforeStatus(), "step")
+        #includeEmbeddings($step.getEmbeddings())
+        #includeHooks("After", $step.getAfter(), $step.getAfterStatus(), "step")
+      </div>
+      #end
+    #end
+    #if ($collapseCounter>0)
+       #foreach($i in [1..$collapseCounter])
+          </div>
+       #end
+    #end
+  </div>
+</div>
+
+#end

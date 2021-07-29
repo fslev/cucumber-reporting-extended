@@ -1,0 +1,7 @@
+$(document).ready(function() {
+
+copyAnchoredUrl=function(id) {
+   var anchoredUrl = document.URL.replace(/#.*$/, "")+id;
+   navigator.clipboard.writeText(anchoredUrl);
+ }
+});

@@ -1,0 +1,48 @@
+#macro(includeLead, $page_title, $page_description, $report_summary)
+<div id="report-lead" class="col-md-6 col-md-offset-1">
+  <div class="col-md-10">
+    <h2>$page_title</h2>
+    #if($page_description)
+      <p>$page_description</p>
+    #end
+    #if($report_summary)
+    <table class="table table-bordered" id="build-info" style="background-color:white">
+      <thead>
+        <tr style="background-color:#eeead6">
+          <th></th>
+          <th>Total</th>
+          <th>Passed</th>
+          <th>Failed</th>
+          <th>Skipped</th>
+          <th>Pending</th>
+          <th>Undefined</th>
+        </tr>
+      </thead>
+      <tbody style="color:#204855">
+        <tr>
+          <td><b>Features</b></td>
+          <td>$report_summary.getFeatures()</td>
+          <td>$report_summary.getPassedFeatures()</td>
+          <td>$report_summary.getFailedFeatures()</td>
+        </tr>
+        <tr>
+          <td><b>Scenarios</b></td>
+          <td>$report_summary.getScenarios()</td>
+          <td>$report_summary.getPassedScenarios()</td>
+          <td>$report_summary.getFailedScenarios()</td>
+        </tr>
+        <tr>
+          <td><b>Steps</b></td>
+          <td>$report_summary.getSteps()</td>
+          <td>$report_summary.getPassedSteps()</td>
+          <td>$report_summary.getFailedSteps()</td>
+          <td>$report_summary.getSkippedSteps()</td>
+          <td>$report_summary.getPendingSteps()</td>
+          <td>$report_summary.getUndefinedSteps()</td>
+        </tr>
+      </tbody>
+    </table>
+    #end
+  </div>
+</div>
+#end

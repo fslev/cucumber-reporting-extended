@@ -1,0 +1,9 @@
+#macro(includeBrief, $keyword, $status, $keyword_value, $expandable, $result)
+
+<div class="brief $status.getRawName()">
+  <span class="keyword indention large-text black-color">$keyword</span>
+  <span class="name large-thin-text">$keyword_value #if ($expandable)<span class="small-text"><i class="chevron fa fa-fw"></i></span>#end</span>
+  #includeDuration($result)
+</div>
+
+#end

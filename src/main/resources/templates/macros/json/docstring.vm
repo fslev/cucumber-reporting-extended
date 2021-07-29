@@ -1,0 +1,12 @@
+#macro(includeDocString, $docString)
+
+#if ($docString)
+    <div>
+      #set($docStringId = $counter.next())
+      <div id="msg-$docStringId" class="collapsable-details">
+        <pre style="margin: 2px; background-color:#f5f9fb; color:#2f3535">$docString.getValue()</pre>
+      </div>
+    </div>
+#end
+
+#end

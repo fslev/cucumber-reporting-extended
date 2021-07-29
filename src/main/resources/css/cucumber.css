@@ -1,0 +1,499 @@
+body {
+    /* Shifts body so navigation bar does not overlap it.
+    Make sure to include this after the core Bootstrap CSS. */
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-size: 1.7rem;
+    padding-top: 60px;
+    overflow-y: overlay;
+    background-color: #e9eff0;
+}
+
+.medium-text {
+    font-family: Arial;
+    font-size: 1.7rem;
+}
+
+.large-text {
+    font-family: Arial;
+    font-size: 1.9rem;
+}
+
+.small-text {
+    font-family: Arial;
+    font-size: 1.6rem;
+}
+
+.xs-text {
+    font-family: Arial;
+    font-size: 1.5rem;
+}
+
+.medium-thin-text {
+    font-family: Arial;
+    font-size: 18px;
+}
+
+.large-thin-text {
+    font-family: Arial;
+    font-size: 20px;
+}
+
+.small-thin-text {
+    font-family: Arial;
+    font-size: 1.5rem;
+}
+
+.orange-color {
+    color: #f44a03;
+}
+
+.blue-color {
+    color: #3a9eb4;
+}
+
+.black-color {
+    color: #000;
+}
+
+.brown-color {
+    color: #909393;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+a {
+    color: #0097da;
+}
+
+a:hover {
+    color: #00587f;
+}
+
+.header-tag-name {
+    color: gray;
+    font-style: italic;
+}
+
+.keyword {
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 1.6rem;
+}
+
+.name {
+    font-weight: normal;
+    padding-right: 50px;
+    word-break: break-word;
+    color: #000
+}
+
+.table-bordered {
+    border: 1px solid #e9eff0;
+}
+
+.table-bordered > thead > tr {
+    border: 0px solid #e9eff0;
+}
+
+.table-bordered > thead > tr > th {
+    border: 0px solid #e9eff0;
+}
+
+.table-bordered > tbody > tr {
+    border: 1px solid #e9eff0;
+}
+
+.table-bordered > tbody > tr > th {
+    border: 1px solid #e9eff0;
+}
+
+.table-bordered > tbody > tr > td {
+    border: 1px solid #e9eff0;
+}
+
+
+.tag {
+    display: inline-flex;
+    margin: 3px 0px 3px 0px; !important;
+    padding: 0px 5px 0px 5px; !important;
+    font-family: sans-serif; !important;
+    font-size: 1.2rem; !important;
+    background-color: #f7f7f7; !important;
+    text-align: center; !important;
+    border-radius: 5px; !important;
+    border-style: solid;
+    border-width: thin;
+    border-color: #c4c4c4;
+}
+
+.tags a {
+    color: #3b5459;
+}
+
+.stats-table a {
+    text-decoration:none;
+    color: #005068;
+    font-size: 1.6rem;
+}
+
+.stats-table a:hover {
+    color: #3a9eb4;
+    text-decoration: underline;
+}
+
+.argument {
+    font-family: Arial;
+    font-size: 1.6rem;
+    color: #016d97;
+}
+
+.collapsible-text {
+    font-weight: bold;
+}
+
+.indention {
+    padding-left: 3px;
+}
+
+.inner-level {
+    margin-top: 5px;
+    margin-left: 20px;
+    padding-bottom: 2px;
+    padding-left: 1px;
+}
+
+.element {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: white;
+    border-color: #d7d9dc;
+    border-style: solid;
+    border-width:thin;
+    border-radius: 3px;
+}
+
+.element-status {
+    padding: 2px 6px 2px 6px;
+    border-radius:3px;
+    font-family: Arial;
+    font-size: 1.6rem;
+    color: white;
+}
+
+.feature-status {
+    padding: 2px 6px 2px 6px;
+    border-radius:3px;
+    border: 1px solid lightgray;
+    font-family: Arial;
+    font-size: 1.7rem;
+}
+
+/* left line along each section */
+.steps, .hooks-after, .hooks-before {
+    box-shadow:  -1px 0 lightgray;
+    transition: box-shadow 0.3s;
+}
+
+.step:hover {
+    background-color: #ecf5f6;
+}
+
+.feature-bar {
+    padding-left:5px;
+    box-shadow: -1px 0 lightgray;
+}
+
+.element:hover, .steps:hover, .hooks-after:hover, .hooks-before:hover {
+    box-shadow: -3px 0 #6ce;
+}
+
+.description {
+    padding: 6px;
+    background-color: #f7fafb;
+    white-space: pre;
+}
+
+.description:empty {
+    display:none;
+}
+
+.message, .output, .embedding {
+    background-color: #e9f1f2;
+    overflow: auto;
+    padding: 2px;
+}
+
+/*
+   same as <pre> from bootstrap library.
+   padding and overflow-x added.
+*/
+.embedding-content {
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    overflow-x: auto;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.html-content {
+    position: relative;
+    /* proportion value to aspect ratio 16:9 (9 / 16 = 0.5625 or 56.25%) */
+    padding: 0 0 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.html-content iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border:none;
+}
+
+.download-button {
+    float: right;
+    margin-right: 10px;
+    color: #333;
+}
+
+/* names of those classes must be the same as name of the statuses (to lower case) in Status class  */
+.passed {
+    background-color: none;
+    box-shadow: inset -8px 0px 0px 0px #94d477;
+    color: #08712c;
+}
+
+.passed-step {
+    display: flow-root;
+    background-color: none;
+    box-shadow: inset -8px 0px 0px 0px #94d477;
+    color: black;
+}
+
+.failed {
+    background-color: none;
+    box-shadow: inset -8px 0px 0px 0px #FF6767;
+    color: #b51b2a;
+}
+
+.failed-step {
+    display: flow-root;
+    background-color: #FF6767;
+    padding: 5px 0 5px 0;
+}
+
+.failed-step .keyword {
+    color:white;
+}
+
+.failed-step .argument {
+    color:white;
+}
+
+.failed-step .duration {
+    color:#736d5b;
+}
+
+.skipped {
+    background-color: none;
+    box-shadow: inset -8px 0px 0px 0px #ABD2E6;
+}
+
+.skipped-step {
+    display: flow-root;
+    background-color: #ABD2E6;
+    padding: 6px 0 2px 0;
+}
+
+.pending {
+    background-color: none;
+    box-shadow: inset -8px 0px 0px 0px #F5F28F;
+}
+
+.pending-step {
+    display: flow-root;
+    background-color: #F5F28F;
+    padding: 6px 0 2px 0;
+}
+
+.undefined {
+    background-color: none;
+    box-shadow: inset -8px 0px 0px 0px #F5B975;
+}
+
+.undefined-step {
+    display: flow-root;
+    background-color: #F5B975;
+    padding: 6px 0 2px 0;
+}
+
+.step {
+    border-bottom: 1px solid #e9f1f2;
+    padding: 6px 0 2px 0;
+    line-height: 1.2;
+}
+
+/** additional space before Given keyword to keep space between steps **/
+.step-name-Given {
+    margin-top: 5px;
+}
+
+.step-name-And {
+    padding-left: 13px;
+}
+
+.step-name-Then {
+    padding-left: 5px;
+}
+
+.lead-duration {
+    float: right;
+    color: #fff !important;
+    margin: 2px 12px 0px 0;
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    background-color: #779091;
+    text-align: center;
+    padding: 1px 4px 1px 4px;
+    border-radius: 4px;
+}
+
+table.stats-table {
+    background-color: white;
+    color: black;
+    margin-bottom: 20px;
+    width: 100%;
+    font-family: Arial;
+    font-size: 1.6rem;
+}
+
+table.stats-table th, table.stats-table td {
+    border: 1px solid #e9eff0;
+    padding: 3px 15px 3px 10px;
+    text-align: center;
+}
+
+table.stats-table tr.header {
+    background-color: #3a9eb4;
+    color: white;
+}
+
+table.stats-table tfoot {
+    font-weight: bold;
+}
+
+tfoot.total, td.total, th.total {
+    background-color: #bbcbce;
+}
+
+table.stats-table td.duration {
+    text-align: right;
+    white-space: nowrap;
+}
+
+table.stats-table td.tagname {
+    text-align: left;
+}
+
+table.stats-table td.location, .location {
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: left;
+}
+
+table.step-arguments {
+    margin-bottom: 5px;
+    margin-left: 25px;
+    margin-top: 3px;
+}
+
+table.step-arguments th, table.step-arguments td {
+    border: 1px solid gray;
+    padding: 3px;
+    text-align: left;
+}
+
+table#tablesorter thead tr:not(.dont-sort) th {
+    cursor: pointer;
+}
+
+tr:hover {
+    transition: background-color 0.3s;
+}
+
+.collapsable-control {
+    cursor: pointer;
+}
+
+.chevron:after {
+    content: "\f078";
+}
+
+.comment {
+    padding: 8px;
+    background-color: #f9f8f5;
+    white-space: pre;
+    font-family: Arial;
+    font-size: 1.5rem;
+    color: #47565e;
+}
+
+.collapsed .chevron:after {
+    content: "\f054";
+}
+
+.footer {
+    font-size: smaller;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+/* Custom Bootstrap CSS overloading. */
+.carousel-indicators {
+    bottom: 0;
+}
+
+.carousel-indicators li {
+    border: 1px solid black;
+}
+
+.carousel-indicators .active {
+    background-color: black;
+}
+
+.carousel-control {
+    font-size: 40px;
+    padding-top: 150px;;
+}
+
+.carousel-control.right, .carousel-control.left {
+    background-image: none;
+    color: #eee;
+}
+
+pre {
+    margin: 0px;
+    background-color: #394344;
+    color: white;
+    border: none;
+    border-radius: 0px;
+    white-space: pre-wrap;
+    line-height: 1.2;
+}
+
+#footer {
+    padding-right: 20px;
+    margin-bottom: 0;
+}

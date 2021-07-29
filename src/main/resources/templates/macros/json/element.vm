@@ -1,0 +1,26 @@
+#macro(includeElement, $element, $linkToFeature)
+
+<div class="element">
+  #set($elementId = $counter.next())
+  <span>
+    <i class="fa fa-anchor"></i> <a class="anchor" id="scene-$elementId" href="javascript:void(0)" onclick=copyAnchoredUrl('#scene-$elementId')>[copy]</a>
+  </span><br/>
+  <span class="small-thin-text" style="color:#6b788a"><i class="fa fa-link"></i><b> Uri:</b> $element.getFeature().getUri():$element.getLine()</span>
+  #includeTags($element.getTags())
+  #includeDuration($element)
+  <span data-toggle="collapse" class="#if ($element.getStatus().isPassed()) collapsed #end collapsable-control" data-target="#element-$elementId">
+    <div style="background-color:#e5edee">
+      #includeBrief($element.getKeyword(), $element.getStatus(), $element.getName(), true)
+    </div>
+  </span>
+  <div class="description indention small-thin-text">$element.getDescription()</div>
+  <div id="element-$elementId" class="collapse collapsable-details #if(!$element.getStatus().isPassed() || $expand_all_steps) in #end">
+    #includeHooks("Before", $element.getBefore(), $element.getBeforeStatus(), "element")
+    #includeSteps($element.getSteps())
+    #includeHooks("After", $element.getAfter(), $element.getAfterStatus(), "element")
+  </div>
+  <br/>
+  <span class="element-status" style="background-color: #if ($element.getStatus()=='PASSED')#94d477 #else #FF6767#end">$element.getStatus()</span>
+</div>
+
+#end
