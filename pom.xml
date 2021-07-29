@@ -20,6 +20,14 @@
         <test.integration.pattern>**/*IntegrationTest*.java</test.integration.pattern>
     </properties>
 
+    <developers>
+        <developer>
+            <name>Florin Slevoaca</name>
+            <email>slevoaca.florin@gmail.com</email>
+            <timezone>EEST</timezone>
+        </developer>
+    </developers>
+
     <profiles>
         <profile>
             <id>nexus-upload</id>
