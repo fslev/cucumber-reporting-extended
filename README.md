@@ -14,6 +14,6 @@ Add a maven dependency to your pom
 <dependency>
     <groupId>io.github.fslev</groupId>
     <artifactId>cucumber-reporting-extended</artifactId>
-    <version>(check version above)</version>
+    <version>${latest.version}</version>
 </dependency>
 ```
