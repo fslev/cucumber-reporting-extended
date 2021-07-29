@@ -3,7 +3,7 @@
     <groupId>io.github.fslev</groupId>
     <artifactId>cucumber-reporting-extended</artifactId>
     <packaging>jar</packaging>
-    <version>5.4.9-SNAPSHOT</version>
+    <version>5.4.8-SNAPSHOT</version>
     <name>cucumber-reporting-extended</name>
     <description>A prettified version of cucumber-reporting</description>
     <url>https://github.com/damianszczepanik/cucumber-reporting</url>
@@ -308,11 +308,4 @@
             </url>
         </repository>
     </distributionManagement>
-
-    <licenses>
-        <license>
-            <name>LGPL 2.1</name>
-            <url>http://www.gnu.org/licenses/lgpl-2.1.html</url>
-        </license>
-    </licenses>
 </project>
