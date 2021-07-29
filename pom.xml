@@ -15,7 +15,7 @@
         <maven.compile.encoding>UTF-8</maven.compile.encoding>
 
         <powermock.version>1.7.3</powermock.version>
-        <jackson.version>2.12.1</jackson.version>
+        <jackson.version>2.12.4</jackson.version>
 
         <test.integration.pattern>**/*IntegrationTest*.java</test.integration.pattern>
     </properties>
@@ -256,7 +256,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.1</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -280,7 +280,7 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.18.1</version>
+            <version>3.20.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
