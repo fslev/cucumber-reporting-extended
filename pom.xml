@@ -3,7 +3,7 @@
     <groupId>io.github.fslev</groupId>
     <artifactId>cucumber-reporting-extended</artifactId>
     <packaging>jar</packaging>
-    <version>5.4.9</version>
+    <version>5.4.10-SNAPSHOT</version>
     <name>cucumber-reporting-extended</name>
     <description>A prettified version of cucumber-reporting</description>
     <url>https://github.com/damianszczepanik/cucumber-reporting</url>
@@ -302,7 +302,7 @@
         <connection>scm:git:ssh://git@github.com/fslev/cucumber-reporting-extended.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/fslev/cucumber-reporting-extended.git</developerConnection>
         <url>https://github.com/fslev/cucumber-reporting-extended/tree/main</url>
-        <tag>cucumber-reporting-extended-5.4.9</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <distributionManagement>
