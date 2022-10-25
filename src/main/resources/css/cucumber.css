@@ -120,16 +120,13 @@ a:hover {
     padding: 0px 5px 0px 5px; !important;
     font-family: sans-serif; !important;
     font-size: 1.2rem; !important;
-    background-color: #f7f7f7; !important;
+    background-color: #5e7e8a; !important;
     text-align: center; !important;
     border-radius: 5px; !important;
-    border-style: solid;
-    border-width: thin;
-    border-color: #c4c4c4;
 }
 
 .tags a {
-    color: #3b5459;
+    color: #fafbfb;
 }
 
 .stats-table a {
@@ -172,6 +169,7 @@ a:hover {
     border-style: solid;
     border-width:thin;
     border-radius: 3px;
+    box-shadow: 1px 1px 5px lightgray;
 }
 
 .element-status {
@@ -491,6 +489,8 @@ pre {
     border-radius: 0px;
     white-space: pre-wrap;
     line-height: 1.2;
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
 }
 
 #footer {

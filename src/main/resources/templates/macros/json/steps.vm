@@ -54,7 +54,7 @@
             #set($outputIndex = $foreach.index + 1)
             <pre><div data-toggle="collapse" class="collapsable-control medium-thin-text" data-target="#output-$stepCounter-$outputIndex">Logs $outputIndex <i class="chevron fa fa-fw"></i></div>
             <div id="output-$stepCounter-$outputIndex" class="collapse in" aria-expanded="true">
-                #foreach($message in $output.getMessages())<p style="font-size: 15px">$message</p>#end</div></pre>
+                #foreach($message in $output.getMessages())<p style="font-size: 16px">$message</p>#end</div></pre>
           #end
         </div>
         #includeHooks("Before", $step.getBefore(), $step.getBeforeStatus(), "step")
