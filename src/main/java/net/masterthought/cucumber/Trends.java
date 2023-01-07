@@ -1,8 +1,8 @@
 package net.masterthought.cucumber;
 
-import org.apache.commons.lang.ArrayUtils;
-
 import java.util.Arrays;
+
+import org.apache.commons.lang.ArrayUtils;
 
 /**
  * Contains historical information about all and failed features, scenarios and steps.

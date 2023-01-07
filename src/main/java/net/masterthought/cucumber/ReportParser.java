@@ -1,6 +1,6 @@
 package net.masterthought.cucumber;
 
-import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
+import static org.apache.commons.lang3.ObjectUtils.isNotEmpty;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -58,24 +58,23 @@ public class ReportParser {
      */
     public List<Feature> parseJsonFiles(List<String> jsonFiles) {
         if (jsonFiles.isEmpty()) {
-            throw new ValidationException("None report file was added!");
+            throw new ValidationException("No JSON report file was found!");
         }
 
         List<Feature> featureResults = new ArrayList<>();
-        for (int i = 0; i < jsonFiles.size(); i++) {
-            String jsonFile = jsonFiles.get(i);
+        for (String jsonFile : jsonFiles) {
             // if file is empty (is not valid JSON report), check if should be skipped or not
-            long size = new File(jsonFile).length();
-            if (size <= 2 && configuration.containsReducingMethod(ReducingMethod.SKIP_EMPTY_JSON_FILES)) {
+            if (new File(jsonFile).length() == 0
+                    && configuration.containsReducingMethod(ReducingMethod.SKIP_EMPTY_JSON_FILES)) {
                 continue;
             }
             Feature[] features = parseForFeature(jsonFile);
-            LOG.log(Level.INFO, String.format("File '%s' contains %d features", jsonFile, features.length));
+            LOG.log(Level.INFO, () -> String.format("File '%s' contains %d feature(s)", jsonFile, features.length));
             featureResults.addAll(Arrays.asList(features));
         }
 
         // report that has no features seems to be not valid
-        if (featureResults.isEmpty() && !configuration.containsReducingMethod(ReducingMethod.SKIP_EMPTY_JSON_FILES)) {
+        if (featureResults.isEmpty()) {
             throw new ValidationException("Passed files have no features!");
         }
 
@@ -92,7 +91,7 @@ public class ReportParser {
         try (Reader reader = new InputStreamReader(new FileInputStream(jsonFile), StandardCharsets.UTF_8)) {
             Feature[] features = mapper.readValue(reader, Feature[].class);
             if (ArrayUtils.isEmpty(features)) {
-                LOG.log(Level.INFO, "File '{0}' does not contain features", jsonFile);
+                LOG.log(Level.INFO, () -> String.format("File '%s' does not contain features", jsonFile));
             }
             String jsonFileName = extractQualifier(jsonFile);
             Arrays.stream(features).forEach(feature ->
@@ -101,7 +100,8 @@ public class ReportParser {
 
             return features;
         } catch (JsonMappingException e) {
-            throw new ValidationException(String.format("File '%s' is not proper Cucumber report!", jsonFile), e);
+            throw new ValidationException(
+                    String.format("File '%s' is not a valid Cucumber report! %s", jsonFile, e.getMessage()), e.getCause());
         } catch (IOException e) {
             // IO problem - stop generating and re-throw the problem
             throw new ValidationException(e);

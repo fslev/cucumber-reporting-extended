@@ -9,6 +9,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import net.masterthought.cucumber.Configuration;
 import net.masterthought.cucumber.ReportBuilder;
@@ -111,10 +112,18 @@ public abstract class AbstractPage {
         context.put("run_with_jenkins", configuration.containsPresentationMode(PresentationMode.RUN_WITH_JENKINS));
         context.put("expand_all_steps", configuration.containsPresentationMode(PresentationMode.EXPAND_ALL_STEPS));
         context.put("hide_empty_hooks", configuration.containsReducingMethod(ReducingMethod.HIDE_EMPTY_HOOKS));
+
         context.put("trends_available", configuration.isTrendsAvailable());
         context.put("build_project_name", configuration.getProjectName());
         context.put("build_number", configuration.getBuildNumber());
         context.put("directory_suffix", configuration.getDirectorySuffixWithSeparator());
+
+        context.put("js_files", configuration.getCustomJsFiles().stream()
+                .map(f -> new File(f).getName())
+                .collect(Collectors.toList()));
+        context.put("css_files", configuration.getCustomCssFiles().stream()
+                .map(f -> new File(f).getName())
+                .collect(Collectors.toList()));
 
         // if report generation fails then report is null
         String formattedTime = reportResult != null ? reportResult.getBuildTime() : ReportResult.getCurrentTime();

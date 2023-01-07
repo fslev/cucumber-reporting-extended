@@ -5,14 +5,17 @@
 <script src="js/Chart.min.js"></script>
 <script src="js/moment.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+#foreach($jsFile in $js_files)
+<script src="js/$jsFile"></script>
+#end
 
 <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
 <link rel="stylesheet" href="css/cucumber.css" type="text/css"/>
 <link rel="stylesheet" href="css/font-awesome.min.css"/>
 <link rel="shortcut icon" href="images/favicon.png"/>
-<link rel="preload" as="font" href="fonts/Inter-UI-Medium.woff" type="font/woff" crossorigin="anonymous">
-<link rel="preload" as="font" href="fonts/Inter-UI-Regular.woff" type="font/woff" crossorigin="anonymous">
-<link rel="preload" as="font" href="fonts/HarmoniaSans.otf" type="font/otf" crossorigin="anonymous">
+#foreach($cssFile in $css_files)
+<link rel="stylesheet" href="css/$cssFile"/>
+#end
 
 <script>
 $(document).ready(function() {

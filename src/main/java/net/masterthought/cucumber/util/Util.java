@@ -16,14 +16,14 @@ import java.util.stream.Collectors;
 public final class Util {
 
     // provide Locale so tests can validate . (instead of ,) separator
-    public static final NumberFormat PERCENT_FORMATTER = NumberFormat.getPercentInstance(Locale.US);
+    public static final NumberFormat PERCENT_FORMATTER = NumberFormat.getPercentInstance(Locale.ENGLISH);
 
     static {
         PERCENT_FORMATTER.setMinimumFractionDigits(2);
         PERCENT_FORMATTER.setMaximumFractionDigits(2);
     }
 
-    private static final NumberFormat DECIMAL_FORMATTER = DecimalFormat.getInstance(Locale.US);
+    private static final NumberFormat DECIMAL_FORMATTER = NumberFormat.getInstance(Locale.ENGLISH);
 
     static {
         DECIMAL_FORMATTER.setMinimumFractionDigits(2);

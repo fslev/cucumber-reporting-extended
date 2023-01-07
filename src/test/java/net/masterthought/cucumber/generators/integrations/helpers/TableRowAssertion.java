@@ -44,7 +44,7 @@ public class TableRowAssertion extends ReportAssertion {
     public void hasExactValues(String... values) {
         WebAssertion[] array = allBySelector("td,th", WebAssertion.class);
 
-        assertThat(array.length).isEqualTo(values.length);
+        assertThat(array).hasSameSizeAs(values);
 
         for (int i = 0; i < values.length; i++) {
             assertThat(array[i].text()).describedAs("Invalid value at index %d", i).isEqualTo(values[i]);
@@ -59,7 +59,7 @@ public class TableRowAssertion extends ReportAssertion {
     public void hasExactCSSClasses(String... classes) {
         WebAssertion[] array = allBySelector("td,th", WebAssertion.class);
 
-        assertThat(array.length).isEqualTo(classes.length);
+        assertThat(array).hasSameSizeAs(classes);
 
         for (int i = 0; i < classes.length; i++) {
             if (StringUtils.isEmpty(classes[i])) {
@@ -78,7 +78,7 @@ public class TableRowAssertion extends ReportAssertion {
     public void hasExactDataValues(String... values) {
         WebAssertion[] array = allBySelector("td,th", WebAssertion.class);
 
-        assertThat(array.length).isEqualTo(values.length);
+        assertThat(array).hasSameSizeAs(values);
 
         for (int i = 0; i < values.length; i++) {
             if (StringUtils.isEmpty(values[i])) {
