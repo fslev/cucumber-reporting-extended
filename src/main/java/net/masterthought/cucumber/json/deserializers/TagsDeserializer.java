@@ -1,13 +1,13 @@
 package net.masterthought.cucumber.json.deserializers;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import net.masterthought.cucumber.Configuration;
+import net.masterthought.cucumber.json.Tag;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.regex.Pattern;
-
-import com.fasterxml.jackson.databind.JsonNode;
-import net.masterthought.cucumber.Configuration;
-import net.masterthought.cucumber.json.Tag;
 
 public class TagsDeserializer extends CucumberJsonDeserializer<Tag[]> {
 

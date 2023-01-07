@@ -13,7 +13,7 @@ import static com.google.common.base.Preconditions.checkArgument;
 /**
  * Merge list of given features. If there are couple of scenarios with the same Id then
  * only the latest will be stored into the report.
- *
+ * <p>
  * Uses when need to generate a report with rerun results of failed tests.
  */
 final class ReportFeatureWithRetestMerger implements ReportFeatureMerger {
@@ -29,8 +29,7 @@ final class ReportFeatureWithRetestMerger implements ReportFeatureMerger {
             Feature mergedFeature = mergedFeatures.get(candidate.getId());
             if (mergedFeature == null) {
                 mergedFeatures.put(candidate.getId(), candidate);
-            }
-            else {
+            } else {
                 updateElements(mergedFeatures.get(candidate.getId()), candidate.getElements());
             }
         }
@@ -44,7 +43,7 @@ final class ReportFeatureWithRetestMerger implements ReportFeatureMerger {
      *
      * @param feature  - target object of Feature class.
      * @param elements - list of elements which need to be inserted to the @feature with replacing
-     *                   or adding to the end.
+     *                 or adding to the end.
      */
     void updateElements(Feature feature, Element[] elements) {
         for (int i = 0; i < elements.length; i++) {
@@ -57,11 +56,10 @@ final class ReportFeatureWithRetestMerger implements ReportFeatureMerger {
                 if (indexOfPreviousResult < 0) {
                     feature.addElements(
                             hasBackground ?
-                                    new Element[] {elements[i - 1], current} :
-                                    new Element[] {current}
-                            );
-                }
-                else {
+                                    new Element[]{elements[i - 1], current} :
+                                    new Element[]{current}
+                    );
+                } else {
                     if (replaceIfExists(feature.getElements()[indexOfPreviousResult], current)) {
                         feature.getElements()[indexOfPreviousResult] = current;
                         if (hasBackground && isBackground(indexOfPreviousResult - 1, feature.getElements())) {

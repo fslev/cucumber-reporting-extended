@@ -1,7 +1,5 @@
 package net.masterthought.cucumber.json;
 
-import java.time.LocalDateTime;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import net.masterthought.cucumber.Configuration;
@@ -11,6 +9,8 @@ import net.masterthought.cucumber.json.support.Status;
 import net.masterthought.cucumber.json.support.StatusCounter;
 import net.masterthought.cucumber.util.Util;
 import org.apache.commons.lang.StringUtils;
+
+import java.time.LocalDateTime;
 
 public class Element implements Durationable {
 

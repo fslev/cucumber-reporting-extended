@@ -1,12 +1,5 @@
 package net.masterthought.cucumber;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-
 import net.masterthought.cucumber.generators.OverviewReport;
 import net.masterthought.cucumber.json.Element;
 import net.masterthought.cucumber.json.Feature;
@@ -22,6 +15,13 @@ import net.masterthought.cucumber.reducers.ReportFeatureMergerFactory;
 import net.masterthought.cucumber.sorting.SortingFactory;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.ArrayUtils;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class ReportResult {
 

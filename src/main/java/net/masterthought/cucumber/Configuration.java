@@ -1,5 +1,12 @@
 package net.masterthought.cucumber;
 
+import net.masterthought.cucumber.json.support.Status;
+import net.masterthought.cucumber.presentation.PresentationMode;
+import net.masterthought.cucumber.reducers.ReducingMethod;
+import net.masterthought.cucumber.sorting.SortingMethod;
+import org.apache.commons.lang.StringUtils;
+import org.checkerframework.checker.nullness.qual.NonNull;
+
 import java.io.File;
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -11,13 +18,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
-
-import net.masterthought.cucumber.json.support.Status;
-import net.masterthought.cucumber.presentation.PresentationMode;
-import net.masterthought.cucumber.reducers.ReducingMethod;
-import net.masterthought.cucumber.sorting.SortingMethod;
-import org.apache.commons.lang.StringUtils;
-import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class Configuration {
 
@@ -81,6 +81,7 @@ public class Configuration {
 
     /**
      * Calls {@link #setTrends(File, int)} with zero limit.
+     *
      * @param trendsFile file with trends
      */
     public void setTrendsStatsFile(File trendsFile) {
@@ -98,10 +99,11 @@ public class Configuration {
 
     /**
      * Checks if the trends page should be generated and displayed.
+     *
      * @return <code>true</code> if the page with trends should be displayed
      */
     public boolean isTrendsAvailable() {
-        return getTrendsLimit() > -1  && isTrendsStatsFile();
+        return getTrendsLimit() > -1 && isTrendsStatsFile();
     }
 
     /**
@@ -110,8 +112,8 @@ public class Configuration {
      * To disable saving and displaying trends page set to -1.
      * Otherwise number of previous builds is equal to provided limit.
      *
-     * @param trendsFile  file where information about previous builds is stored
-     * @param limit number of builds that should be presented (older builds are skipped)
+     * @param trendsFile file where information about previous builds is stored
+     * @param limit      number of builds that should be presented (older builds are skipped)
      */
     public void setTrends(File trendsFile, int limit) {
         this.trendsFile = trendsFile;
@@ -259,6 +261,7 @@ public class Configuration {
 
     /**
      * Checks if the configuration has given {@link ReducingMethod} set.
+     *
      * @param reducingMethod method to validate
      * @return <code>true</code> if method was set, otherwise <code>false</code>
      */
@@ -320,8 +323,9 @@ public class Configuration {
 
     /**
      * Sets explicit qualifier to use for the given json file.
-     * @param jsonFileName  JSON file name - without the extension
-     * @param qualifier     Qualifier to use
+     *
+     * @param jsonFileName JSON file name - without the extension
+     * @param qualifier    Qualifier to use
      */
     public void setQualifier(@NonNull String jsonFileName, @NonNull String qualifier) {
         qualifiers.put(jsonFileName, qualifier);
@@ -329,8 +333,9 @@ public class Configuration {
 
     /**
      * Retrieves explicit qualifier to use for a given json file.
-     * @param jsonFileName  JSON file name - without the extension
-     * @return              Qualifier specified for this file or <code>null</code> if none specified
+     *
+     * @param jsonFileName JSON file name - without the extension
+     * @return Qualifier specified for this file or <code>null</code> if none specified
      */
     public String getQualifier(@NonNull String jsonFileName) {
         return qualifiers.get(jsonFileName);
@@ -338,8 +343,9 @@ public class Configuration {
 
     /**
      * Checks whether an explicit qualifier was specified for a given json file.
-     * @param jsonFileName  JSON file name - without the extension
-     * @return              <code>true</code> if the qualifier was specified, <code>false</code> otherwise
+     *
+     * @param jsonFileName JSON file name - without the extension
+     * @return <code>true</code> if the qualifier was specified, <code>false</code> otherwise
      */
     public boolean containsQualifier(@NonNull String jsonFileName) {
         return qualifiers.containsKey(jsonFileName);
@@ -347,7 +353,8 @@ public class Configuration {
 
     /**
      * Removes explicit qualifier for a given json file.
-     * @param jsonFileName  JSON file name - without the extension
+     *
+     * @param jsonFileName JSON file name - without the extension
      */
     public void removeQualifier(@NonNull String jsonFileName) {
         qualifiers.remove(jsonFileName);

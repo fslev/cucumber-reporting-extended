@@ -1,12 +1,11 @@
 package net.masterthought.cucumber.json;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Locale;
-
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import net.masterthought.cucumber.json.deserializers.EmbeddingDeserializer;
 import org.codehaus.plexus.util.Base64;
 
-import net.masterthought.cucumber.json.deserializers.EmbeddingDeserializer;
+import java.nio.charset.StandardCharsets;
+import java.util.Locale;
 
 /**
  * @author Damian Szczepanik (damianszczepanik@github)
@@ -69,16 +68,16 @@ public class Embedding {
 
     /**
      * Returns the file extension of this embedding (attachment).
-     *
+     * <p>
      * In case the {{@link #getMimeType() embedding's MIME-type} is well-known, the according file extension is returned
      * immediately.
-     *
+     * <p>
      * In case the MIME-type is unknown, as a first try the {@link #getName() embedding's name} will be used in order to
      * derive a file extension. If the name contains a file name delimiter (i.e., "{@code .}"), the following characters are
      * used as the file extension as long as they match {@value #FILE_EXTENSION_PATTERN}. As a second try, the MIME-type's
      * subtype will be used in order to derive a file extension (as long as such subtype is given). Similar, the subtype is
      * used as the file extension as long as it matches {@value #FILE_EXTENSION_PATTERN}.
-     *
+     * <p>
      * Finally (if neither a file extension is known nor can be derived), the value {@value #UNKNOWN_FILE_EXTENSION} will be
      * returned.
      *

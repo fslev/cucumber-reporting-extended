@@ -1,15 +1,12 @@
 package net.masterthought.cucumber.generators;
 
-import java.util.List;
-
 import net.masterthought.cucumber.Configuration;
 import net.masterthought.cucumber.ReportResult;
 import net.masterthought.cucumber.json.support.Status;
 import net.masterthought.cucumber.json.support.TagObject;
 import net.masterthought.cucumber.util.Util;
 
-import java.util.ArrayList;
-import java.util.regex.Pattern;
+import java.util.List;
 
 /**
  * @author Damian Szczepanik (damianszczepanik@github)
