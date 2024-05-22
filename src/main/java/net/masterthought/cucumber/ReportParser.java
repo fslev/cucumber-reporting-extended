@@ -1,5 +1,6 @@
 package net.masterthought.cucumber;
 
+import com.fasterxml.jackson.core.StreamReadConstraints;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.InjectableValues;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -48,6 +49,8 @@ public class ReportParser {
         // pass configuration to deserializers
         InjectableValues values = new InjectableValues.Std().addValue(Configuration.class, configuration);
         mapper.setInjectableValues(values);
+
+        mapper.getFactory().setStreamReadConstraints(StreamReadConstraints.builder().maxStringLength(Integer.MAX_VALUE).build());
     }
 
     /**
