@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.fslev</groupId>
     <artifactId>cucumber-reporting-extended</artifactId>
     <packaging>jar</packaging>
-    <version>5.4.14-SNAPSHOT</version>
+    <version>5.4.14</version>
     <name>cucumber-reporting-extended</name>
     <description>A prettified version of cucumber-reporting</description>
     <url>https://github.com/damianszczepanik/cucumber-reporting</url>
@@ -303,7 +302,7 @@
         <connection>scm:git:ssh://git@github.com/fslev/cucumber-reporting-extended.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/fslev/cucumber-reporting-extended.git</developerConnection>
         <url>https://github.com/fslev/cucumber-reporting-extended/tree/main</url>
-        <tag>HEAD</tag>
+        <tag>cucumber-reporting-extended-5.4.14</tag>
     </scm>
 
     <distributionManagement>
